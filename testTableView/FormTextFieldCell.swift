@@ -25,6 +25,18 @@ class FormTextFieldCell: FormBaseCell,FormCellOnFoucsProtocol,UITextFieldDelegat
         return self.textField.text
     }
     
+    var inputTextOffset:Float? {
+        get{
+            return Float( self.textField.leftView?.frame.size.width ?? 0 )
+        }
+        set{
+            let leftView = UIView(frame: CGRect(x: CGFloat(0.0), y: CGFloat(0.0), width: CGFloat(newValue!), height: CGFloat(10.0) ) )
+            self.textField.textAlignment = .Left
+            self.textField.leftView = leftView
+            self.textField.leftViewMode = .Always
+        }
+    }
+    
     lazy var textField:UITextField = {
         
         var field = UITextField(frame:CGRectZero )

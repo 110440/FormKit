@@ -76,12 +76,14 @@ class ViewController: FormViewController {
         var textField = FormTextFieldCell(title: "密码:",detailText: "不能小于6").placeholder("请输入密码").SetIsPassWord(true)
         textField.addValidator(textField.inputValidator(6, max: 10 ,errorMsg: "密码长度6-10"))
         textField.detailTextColor = UIColor.darkGrayColor()
+        textField.inputTextOffset = 150
         return textField
     }()
     
     lazy var userName:FormTextFieldCell = {
         var textField = FormTextFieldCell(title: "账号:").placeholder("输入用户名").showClearButtonWhileEditting()
         textField.addValidator(textField.inputValidator(3, max: 6,errorMsg: "用户名长度:3-6"))
+        textField.inputTextOffset = 150
         return textField
     }()
     
